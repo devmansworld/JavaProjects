@@ -11,28 +11,24 @@ public class Geometria
        int forma = 0;
        forma = intro(forma);
        if (forma  ==1 ) {
-           Triangulo triangulo = new Triangulo(5, 10);
-           triangulo.area();
-           System.out.println("Área del triángulo de base 5 y altura 10: " +
-                   triangulo.getareaTriangulo());
+           Triangulo triangulo = new Triangulo(0, 0);
+           triangulo.figura1();
+
        }
        else if (forma == 2) {
-           Cuadrado cuadrado = new Cuadrado(10);
-           cuadrado.area();
-           System.out.println("Área del cuadrado de lado 10: " +
-                   cuadrado.getareaCuadrado());
+           Cuadrado cuadrado = new Cuadrado(0);
+           cuadrado.figura2();
+
        }
        else if (forma == 3) {
-           Circulo circulo = new Circulo(200);
-           circulo.area();
-           System.out.println("Área del círculo de radio 200: " +
-                   circulo.getAreaRadio());
+           Circulo circulo = new Circulo(  0);
+           circulo.figura3();
+
        }
        else if (forma == 4) {
-           Rectangulo rectangulo = new Rectangulo(100, 20);
-           rectangulo.area();
-           System.out.println("Área del rectángulo de base 100 y altura 20: " +
-                   rectangulo.getAreaRectangulo());
+           Rectangulo rectangulo = new Rectangulo();
+           rectangulo.figura4();
+
        }
     }
 
@@ -55,3 +51,38 @@ public class Geometria
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+//cuadrado.areaCuadrado();
+//    cuadrado.periCuadrado();
+// System.out.println("Área del cuadrado : " + cuadrado.getArea());
+//      cuadrado.getArea();
+
+// circulo.areaCirculo();
+//  System.out.println("Área del círculo: " + circulo.getArea());
+
+// 4rectangulo.getArea();
+//  System.out.println("Área del rectángulo  " + rectangulo.getArea());
