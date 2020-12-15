@@ -48,7 +48,7 @@ public class Triangulo implements FiguraGeometrica
     public void setArea(double area) {
         this.area = area;
     }
-    public static double areaTriangulo(double base, double altura)
+    public static double area(double base, double altura)
     {
         double area = base * altura * .5;
         System.out.println ( "El área del triángulo es : " + area + " cm2");
@@ -58,7 +58,7 @@ public class Triangulo implements FiguraGeometrica
 
 //
 
-    public static double periTriangulo(double base, double altura)
+    public static double perimetro(double base, double altura)
 
     {   double c = Math.sqrt(base * base + altura * altura);
 
@@ -85,8 +85,8 @@ public class Triangulo implements FiguraGeometrica
 
             try {
                 double altura = scan.nextDouble();
-                areaTriangulo(base, altura); //
-                periTriangulo(base, altura); //
+                area(base, altura); //
+                perimetro(base, altura); //
 
 
             } catch (Exception e) {

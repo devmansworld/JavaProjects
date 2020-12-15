@@ -44,7 +44,7 @@ public class Rectangulo implements FiguraGeometrica
         return area;
     }
 
-@Override
+    @Override
     public void area()
     {
         area= base * altura;
@@ -52,7 +52,7 @@ public class Rectangulo implements FiguraGeometrica
 
 
 
-    public static double periRectangulo (double base, double altura)
+    public static double perimetro(double base, double altura)
 
     {
         double perimetro =  base + base + altura + altura;
@@ -64,7 +64,7 @@ public class Rectangulo implements FiguraGeometrica
     }
 
 
-    public static double areaRectangulo (double base, double altura)
+    public static double area (double base, double altura)
     {double area = base * altura;
 
         System.out.println (" El área del rectángulo es : " + area + " cm2");
@@ -88,17 +88,13 @@ public class Rectangulo implements FiguraGeometrica
                 double altura = scan.nextDouble();
 
 
-                areaRectangulo(base, altura); //
-                periRectangulo(base, altura); //
+                area(base, altura); //
+                perimetro(base, altura); //
 
             } catch (Exception e) {
                 System.out.println("formato de dato altura no coincide");
             }
         }catch (Exception e) {System.out.println("Cerrando");}
-
-
-
-
 
 
 

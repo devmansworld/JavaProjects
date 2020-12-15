@@ -1,5 +1,4 @@
 package geometria;
-
 import java.util.Scanner;
 
 public class Circulo implements FiguraGeometrica
@@ -12,41 +11,33 @@ public class Circulo implements FiguraGeometrica
     public Circulo(double radio)
     {
         this.radio = radio;
+        this.area = area;
+        this.perimetro = perimetro;
     }
     public Circulo(){}
 
-    public double getRadio()
-    {
-        return radio;
-    }
-    public void setRadio(double radio)
-    {
-        this.radio = radio;
-    }
-
-    public double getArea()
-    {
-        return area;
-    }
+    public double getRadio() { return radio; }
+    public void setRadio(double radio) { this.radio = radio; }
+    public double getArea() { return area; }
     public void setArea(double area) {this.area = area; }
-
-    //atributo de esa clase, definido en linea 8 = area 2 es igual al atributo.
- // area2 es nombre del parametro   // area es el nombre del atributo
-//    public void setArea(double area2) {this.area = area2; }
-
     public double getPerimetro() {return perimetro; }
     public void setPerimetro(double perimetro)
     {
         this.perimetro = perimetro;
     }
-
-    //que el atributo perimetro obtenga el valor de perimetro
-
+    @Override
     public void area()
-    {
-        area = pi * radio * radio;
+    { double area = pi * radio * radio;
+    System.out.println("El área del círculo es : " + area + " ..cm2 ");
     }
-    public double periCirculo(double radio)
+
+    //@Override
+    public double area(double radio, double pi)
+    {area = pi * radio * radio;
+       System.out.println("El área del círculo es : " + area + "...cm2 ");
+    return area;}
+
+    public double perimetro(double radio)
     {
         double perimetro = 2 * radio * Math.PI;
 
@@ -61,27 +52,23 @@ public class Circulo implements FiguraGeometrica
 
         try{
             double radio = scan.nextDouble();
+            area(pi, radio);
+            perimetro(radio);
+
 
         }catch(Exception e){System.out.println("radio en formato incorrecto");
 
         }
-        area();
-        perimetro(radio);
-
-    //
-        //
 
     }
 
-// set y get : metodos publicos para acceder a los atributos.
-
-    // por ejemplo base, altura : que otorga resultado en área
-
-    //
 
 
-   /* @Override
-    public void areaCirculo() {
-    area = ( radio * radio * pi);
-    }  */
 }
+
+//atributo de esa clase, definido en linea 8 = area 2 es igual al atributo.
+// area2 es nombre del parametro   // area es el nombre del atributo
+//    public void setArea(double area2) {this.area = area2; }
+// set y get : metodos publicos para acceder a los atributos.
+// por ejemplo base, altura : que otorga resultado en área
+

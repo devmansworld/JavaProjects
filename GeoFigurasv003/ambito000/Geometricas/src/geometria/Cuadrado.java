@@ -48,7 +48,7 @@ public class Cuadrado implements FiguraGeometrica
     }
 
 
-    public double periCuadrado(double lado)
+    public double perimetro(double lado)
     {
         double perimetro = lado * 4;
 
@@ -66,8 +66,8 @@ public class Cuadrado implements FiguraGeometrica
         try{
 
         }catch(Exception e){System.out.println("Error en formato de lado cuadrado");}
-        areaCuadrado(lado);
-        periCuadrado(lado);
+        area(lado);
+        perimetro(lado);
     }
 
     public double area(double lado)
@@ -79,4 +79,3 @@ public class Cuadrado implements FiguraGeometrica
 
 
 }
-
