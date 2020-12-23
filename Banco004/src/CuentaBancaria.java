@@ -2,8 +2,8 @@ import java.util.ArrayList;
 
 public class CuentaBancaria {
 
-    private Integer identificador;
-    private Double saldo;
+    private int identificador;
+    private double saldo;
     private ArrayList <Operacion> operacionesRealizadas;
 
     public Integer getIdentificador() {

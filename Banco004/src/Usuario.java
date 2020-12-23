@@ -1,9 +1,8 @@
 import java.util.ArrayList;
 
-
 public class Usuario {
     private String nombre;
-    private Integer dni;
+    private int dni;
     private CuentaBancaria cuentaBancaria;
 
     public Usuario(String nombre, Integer dni, CuentaBancaria cuentaBancaria) {

@@ -1,6 +1,6 @@
 public class Operacion {
     private String tipoOperacion;
-    private Double montoOperacion;
+    private double montoOperacion;
 
     public Operacion(String tipoOperacion, Double montoOperacion) {
         this.tipoOperacion = tipoOperacion;
