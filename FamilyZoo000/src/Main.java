@@ -59,15 +59,48 @@ public class Main {
         getCatsAndParrots(theVenegas, "Cat", "Parrot");
         whoHasNoPets(theVenegas);
         findingPetByName(theVenegas, "Bobby");
+        catsAndParrotsNotDogs(theVenegas, "Cat","Parrot","Dog" );
+        //findingMemberWithNoPets(theVenegas);
+        //findingAnyGivenSpecies(theVenegas,"Parrot");
 
-//findByName();
-// averiguar diferencia entre Equals y ==  como comparacion
 
     }
 
+    public static void catsAndParrotsNotDogs(Family family, String catSpecies, String parrotSpecies, String dogSpecies) {
+
+        System.out.println("- - - - - - - - - - ");
+        System.out.println("Finding members that have only Cat and Parrot :");
+        int howManyCatsOrParrots=0;
+        for (Person person: family.getMembersList()) {
+            boolean hasCat=false;
+            boolean hasParrot=false;
+
+            for(Pet pet: person.getPetsList()){
+                for(int i=0; i<person.getPetsList().length; i++) {
+                    if (person.getPetsList()[i] != null) {
+                        if (person.getPetsList()[i].getPetSpecies().equals(catSpecies)) {
+                            hasCat = true;
+
+                        } else if (person.getPetsList()[i].getPetSpecies().equals(parrotSpecies)) {
+                            hasParrot = true;
+                        }
+                    }
+                }
+            }
+            if((hasCat==true)&&(hasParrot==true))
+            {
+                System.out.println( person.getPersonName() + " has at least one Cat and Parrot, but not any Dogs!");
+                howManyCatsOrParrots++;
+
+            }
+        }
+        System.out.println("Total of people having Cats and Parrots : " + howManyCatsOrParrots);
+    }
+
+
 
     public static void findingPetByName(Family family, String whichPet) {
-        System.out.println("****");
+        System.out.println("- - - - - - - - - -");
         System.out.println("Finding the Pet");
         for (Person person : family.getMembersList()) {
             for (Pet pet : person.getPetsList()) {
@@ -83,45 +116,42 @@ public class Main {
     }
 
     public static void printingAllFamilyList(Family family) {
-        System.out.println("****");
+        int animalCount=0;
+        boolean hasPets=false;
+        System.out.println("- - - - - - - - - - ");
         System.out.println("Printing Full List");
         for (Person person : family.getMembersList()) {
-            if (person.getPetsList() == null) {
-                System.out.println(person.getPersonName() + " Null no tiene ");
-            }else{
-                System.out.println(" list of pets for " + person.getPersonName());
+            if (person.getPetsList() != null) {
+                System.out.println("- - - - - - - - - - - - - - ");
+                System.out.println(" list of pets for " + person.getPersonName() + ": ");
                 Arrays.asList(person.getPetsList());  //<-------------------- por validar si esta ok
                 for (Pet pet : person.getPetsList()) {
-                    if (pet == null) {
-                    } else {
-                        System.out.println(pet.getPetSpecies() + " , named  " + pet.getPetName());
+                    if (pet != null) {  System.out.println(pet.getPetSpecies() + " , named  " + pet.getPetName());
+                    animalCount++;
+                    hasPets=true;
                     }
                 }
             }
-        }//
+        }
     }
-    
+
     public static void findByOtherStuff(Family family, String whichSpecies) {
+        System.out.println("- - - - - - - - - -");
         System.out.println("Finding Parrots");
+        int speciesCounter=0;
         for (Person person : family.getMembersList()) {
-            {
-            }
             for (Pet pet : person.getPetsList())
                 if (pet == null) {
                 } else if (pet.getPetSpecies() == whichSpecies) {
                     System.out.println("Parrot owner is " + person.getPersonName());
-                } else {
+                    speciesCounter++;
                 }
         }
-        //obs : si se tiene else vacios o if vacios, se pueden obviar o potenciar mejora en logica
-        // no sirven if vacios Nunca, mejorar logica
-
-        //verificar orden adecuado de los pasos en cada script : no rompe el codigo pero no opera ninguna funcion
-        //
+        System.out.println("Number of parrots owners : " + speciesCounter);
     }
 
     public static void getCatsAndParrots(Family family, String oneOfThese, String oneOfThose) {
-        System.out.println("*********");
+        System.out.println("- - - - - - - - - - ");
         System.out.println("Finding Cats and Parrots, excluding Dogs: ");
         for (Person person : family.getMembersList()) {
             {
@@ -139,9 +169,68 @@ public class Main {
                 }
         }
     }
-    //se pueden utilizar variables locales como un booleano
-    // has dog: cambia booleano
-    //  dependiendo del ejercicio = ocupar un contador no romperia la funcion
+
+
+    public static void whoHasNoPets(Family family) {
+        System.out.println("- - - - - - - - - - ");
+        System.out.println("Naming who does not have pets ");
+        for (Person person : family.getMembersList()) {
+            if (person.getPetsList()==null) {
+             //   person.setPetCount(0); se sugiere no utilizar indices como "atributos" de una clase
+                System.out.println("No pets");
+
+            } else {
+                person.setPetCount(person.getPetCount() + 1);
+            }
+
+        }
+    }
+
+}
+
+/*
+
+//findByName();
+// averiguar diferencia entre Equals y ==  como comparacion
+
+ ///obs : si se tiene else vacios o if vacios, se pueden obviar o potenciar mejora en logica
+        // no sirven if vacios Nunca, mejorar logica
+
+        //verificar orden adecuado de los pasos en cada script : no rompe el codigo pero no opera ninguna funcion
+        //
+        //se pueden utilizar variables locales como un booleano
+        // has dog: cambia booleano
+        //  dependiendo del ejercicio = ocupar un contador no romperia la funcion
+
+         if (hasPets==false){
+                System.out.println(" no pets ");
+            }
+
+        /*
+
+
+       /*
+    public static void findingMemberWithNoPets(Family family)
+    {
+        System.out.println("- - - - - - - - - - ");
+        System.out.println("Finding which family member does not have pets:  ");
+        for(Person person: family.getMembersList()){
+            boolean hasAPet = false;
+            for(Pet pet: person.getPetsList()){
+              ---> for(int j=0; j<person.getPetsList().length; j++){
+              ----> if(person.getPetsList()[j]!=null){
+             ----->           hasAPet=false;
+              ----->      }
+             ------>       else{hasAPet=true;}
+            ------->    }
+            }
+                    if (hasAPet=false){
+                    { System.out.println("this family member " + person.getPersonName() + " does not have any pets ");}
+                    }
+                    }
+                    }
+        */
+
     /*
     public static void getEmptyPets(Family family) {
         for (Person person : family.getMembersList()) {
@@ -160,36 +249,7 @@ public class Main {
      *
      **/
 
-
-    public static void whoHasNoPets(Family family) {
-        System.out.println("*********");
-        System.out.println("Naming who does not have pets ");
-        for (Person person : family.getMembersList()) {
-            if (person.getPetsList()==null) {
-             //   person.setPetCount(0); se sugiere no utilizar indices como "atributos" de una clase
-                System.out.println("No pets");
-
-            } else {
-                person.setPetCount(person.getPetCount() + 1);
-            }
-
-        }
-    }
-
-
-}
-
 /*
-*
-*
-*
-*
-*
-*
-*
-*
-
-*
 public static void parrotAndCatNotDog(){}
 
     public static void findBySpecies(Family family, String whichSpecies){
@@ -241,5 +301,30 @@ public static void findByName
             }
         }
     }
+     public static void findingAnyGivenSpecies(Family family, String whichSpecies){
+        int speciesCounter = 0;
+        System.out.println("- - - - - - - - - ");
+        System.out.println("Counting the Parrot owners : ");
 
-* */
+        for (Person person : family.getMembersList()){
+            if (person.getPetsList()!=null){
+                for(Pet pet: person.getPetsList()){
+                    while(pet!=null){
+                    if(pet.getPetSpecies() == whichSpecies){
+                        System.out.println(person.getPersonName() + "is a " +pet.getPetSpecies() +" owner");
+                        speciesCounter++;
+                    }
+
+                }
+
+                }
+            }
+        }
+
+    }
+
+
+
+
+
+ */
